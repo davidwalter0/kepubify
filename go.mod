@@ -1,6 +1,6 @@
 module github.com/pgaskin/kepubify/v4
 
-go 1.16
+go 1.21.0
 
 // kepub
 require (
@@ -9,7 +9,7 @@ require (
 	github.com/pgaskin/kepubify/_/go116-zip.go117 v0.0.0-20210611152744-2d89b3182523
 	github.com/pgaskin/kepubify/_/html v0.0.0-20211223234002-6ee2cc632cdc
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	golang.org/x/text v0.3.6
+	golang.org/x/text v0.12.0
 )
 
 // kepubify/covergen/seriesmeta/kobotest
@@ -20,3 +20,12 @@ require (
 	github.com/pgaskin/koboutils/v2 v2.1.2-0.20220306004009-a07e72ebae42
 	github.com/spf13/pflag v1.0.5
 )
+
+require github.com/davidwalter0/go-epub-translator/gtranslate v0.0.0-00010101000000-000000000000
+
+require (
+	github.com/robertkrimen/otto v0.2.1 // indirect
+	gopkg.in/sourcemap.v1 v1.0.5 // indirect
+)
+
+replace github.com/davidwalter0/go-epub-translator/gtranslate => ./gtranslate

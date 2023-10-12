@@ -21,6 +21,19 @@ import (
 
 var version = "v4-dev"
 
+type Mutex struct {
+	sync.Mutex
+}
+
+var mutex = Mutex{}
+
+func (m *Mutex) Monitor() func() {
+	m.Lock()
+	return func() {
+		m.Unlock()
+	}
+}
+
 func main() {
 	pflag.CommandLine.SortFlags = false
 
