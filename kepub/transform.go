@@ -16,7 +16,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/beevik/etree"
-	"github.com/davidwalter0/go-epub-translator/gtranslate"
+	"github.com/davidwalter0/gtranslate"
 	"github.com/kr/smartypants"
 	"golang.org/x/text/transform"
 
@@ -662,7 +662,8 @@ func transformContentClean(doc *html.Node) {
 				switch c.Type {
 				case html.TextNode:
 					if len(strings.TrimSpace(c.Data)) > 0 {
-						c.Data = translate("de", "en", c.Data)
+						var text = []byte(translate("de", "en", c.Data))
+						c.Data = string(AddRegexpSpace(text))
 					}
 				}
 				stack = append(stack, c)
